@@ -1,5 +1,5 @@
 # Hyperlocal_Delivery_Service_App
-Hyperlocal delivery service app is developed using flutter. It connects local vendors to local customers, giving the opportunity to expand their businesses. It makes the day-to-day shopping of customer's hassle free. It is a safe and secure way to shop from your local vendors.
+Hyperlocal delivery service app is developed using flutter. It connects local vendors to local customers, giving them the opportunity to expand their businesses. It makes the day-to-day shopping of customer's hassle free. It is a safe and secure way to shop from your local vendors.
 
 ### Login Page:
 
