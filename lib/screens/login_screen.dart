@@ -18,6 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
   late String password;
   final _auth = FirebaseAuth.instance;
   bool showSpinner = false;
+  String? error;
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -126,9 +127,36 @@ class _LoginScreenState extends State<LoginScreen> {
                           email = '';
                           password = '';
                         } catch (e) {
-                          print(e);
+                          error = e.toString();
                         }
                         setState(() {
+                          if (error != null) {
+                            showDialog<String>(
+                              context: context,
+                              builder: (BuildContext context) => AlertDialog(
+                                title: const Text(
+                                  'Login Error',
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                                content: Text(error.toString()),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                      error = null;
+                                    },
+                                    child: const Text(
+                                      'OK',
+                                      style: TextStyle(
+                                        color: kDarkPurple,
+                                        fontSize: 22,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          }
                           showSpinner = false;
                         });
                       },

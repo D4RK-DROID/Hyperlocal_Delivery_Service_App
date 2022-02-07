@@ -1,8 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hyperlocal_app/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:hyperlocal_app/screens/shop_screen.dart';
+import 'package:hyperlocal_app/widgets/category_tile.dart';
+import 'package:hyperlocal_app/widgets/navbar.dart';
+import 'category_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -76,11 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         const Text(
                           'Welcome back!',
-                          style: TextStyle(
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Lora',
-                          ),
+                          style: kHeadingTextStyle,
                         ),
                       ],
                     ),
@@ -99,22 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                   ),
                   child: TextField(
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.all(0),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      filled: true,
-                      prefixIcon: const Icon(
-                        Icons.search,
-                        color: kDarkPurple,
-                      ),
-                      hintText: 'Search',
-                      hintStyle: const TextStyle(
-                        color: kDarkPurple,
-                        fontFamily: 'Oxygen',
-                      ),
-                      fillColor: const Color(0xFFFFFFFF),
-                    ),
+                    decoration: kSearchFieldDecoration,
                     style: const TextStyle(
                       color: kDarkPurple,
                       fontFamily: 'Oxygen',
@@ -134,7 +118,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.zero,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              setState(() {
+                                Navigator.pushNamed(context, ShopScreen.id);
+                              });
+                            },
                             child: Container(
                               decoration: BoxDecoration(
                                 color: kPurple,
@@ -183,7 +171,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: 20,
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            Navigator.pushNamed(context, CategoryScreen.id);
+                          });
+                        },
                         style: TextButton.styleFrom(padding: EdgeInsets.zero),
                         child: Container(
                           height: 42,
@@ -226,16 +218,25 @@ class _HomeScreenState extends State<HomeScreen> {
                             CustomTile(
                               assetName: 'images/grocery.png',
                               categoryName: 'General',
+                              imageHeight: 100,
+                              imageWidth: 120,
+                              fontSize: 14,
                             ),
                             SizedBox(width: 10),
                             CustomTile(
                               assetName: 'images/vegetables.png',
                               categoryName: 'Vegetables',
+                              imageHeight: 100,
+                              imageWidth: 120,
+                              fontSize: 14,
                             ),
                             SizedBox(width: 10),
                             CustomTile(
                               assetName: 'images/fruit_basket.png',
                               categoryName: 'Fruits',
+                              imageHeight: 100,
+                              imageWidth: 120,
+                              fontSize: 14,
                             ),
                             SizedBox(width: 10),
                           ],
@@ -263,16 +264,25 @@ class _HomeScreenState extends State<HomeScreen> {
                             CustomTile(
                               assetName: 'images/onion.png',
                               categoryName: 'Onion-1kg',
+                              imageHeight: 100,
+                              imageWidth: 120,
+                              fontSize: 14,
                             ),
                             SizedBox(width: 10),
                             CustomTile(
                               assetName: 'images/amul_milk.png',
                               categoryName: 'Milk-500ml',
+                              imageHeight: 100,
+                              imageWidth: 120,
+                              fontSize: 14,
                             ),
                             SizedBox(width: 10),
                             CustomTile(
                               assetName: 'images/lays.png',
                               categoryName: 'Lays-52gm',
+                              imageHeight: 100,
+                              imageWidth: 120,
+                              fontSize: 14,
                             ),
                             SizedBox(width: 10),
                           ],
@@ -288,69 +298,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-              backgroundColor: Color(0xFF5C5470),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
-              backgroundColor: Color(0xFF5C5470),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart),
-              label: 'Cart',
-              backgroundColor: Color(0xFF5C5470),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.menu),
-              label: 'Menu',
-              backgroundColor: Color(0xFF5C5470),
-            )
-          ],
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.white,
-        ),
-      ),
-    );
-  }
-}
-
-class CustomTile extends StatelessWidget {
-  const CustomTile({
-    Key? key,
-    required this.assetName,
-    required this.categoryName,
-  }) : super(key: key);
-  final String assetName;
-  final String categoryName;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: kWhite,
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Column(
-        children: [
-          Image(
-            image: AssetImage(assetName),
-            width: 120,
-            height: 100,
-          ),
-          Text(
-            categoryName,
-            style: const TextStyle(
-              color: kDarkPurple,
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'Oxygen',
-            ),
-          ),
-        ],
+        bottomNavigationBar: const NewNavBar(),
       ),
     );
   }
