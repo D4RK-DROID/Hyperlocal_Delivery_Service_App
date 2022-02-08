@@ -3,7 +3,7 @@ import 'package:hyperlocal_app/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hyperlocal_app/screens/shop_screen.dart';
-import 'package:hyperlocal_app/widgets/category_tile.dart';
+import 'package:hyperlocal_app/widgets/custom_tile.dart';
 import 'package:hyperlocal_app/widgets/navbar.dart';
 import 'category_screen.dart';
 
@@ -218,25 +218,16 @@ class _HomeScreenState extends State<HomeScreen> {
                             CustomTile(
                               assetName: 'images/grocery.png',
                               categoryName: 'General',
-                              imageHeight: 100,
-                              imageWidth: 120,
-                              fontSize: 14,
                             ),
                             SizedBox(width: 10),
                             CustomTile(
                               assetName: 'images/vegetables.png',
                               categoryName: 'Vegetables',
-                              imageHeight: 100,
-                              imageWidth: 120,
-                              fontSize: 14,
                             ),
                             SizedBox(width: 10),
                             CustomTile(
                               assetName: 'images/fruit_basket.png',
                               categoryName: 'Fruits',
-                              imageHeight: 100,
-                              imageWidth: 120,
-                              fontSize: 14,
                             ),
                             SizedBox(width: 10),
                           ],
@@ -264,25 +255,16 @@ class _HomeScreenState extends State<HomeScreen> {
                             CustomTile(
                               assetName: 'images/onion.png',
                               categoryName: 'Onion-1kg',
-                              imageHeight: 100,
-                              imageWidth: 120,
-                              fontSize: 14,
                             ),
                             SizedBox(width: 10),
                             CustomTile(
                               assetName: 'images/amul_milk.png',
                               categoryName: 'Milk-500ml',
-                              imageHeight: 100,
-                              imageWidth: 120,
-                              fontSize: 14,
                             ),
                             SizedBox(width: 10),
                             CustomTile(
                               assetName: 'images/lays.png',
                               categoryName: 'Lays-52gm',
-                              imageHeight: 100,
-                              imageWidth: 120,
-                              fontSize: 14,
                             ),
                             SizedBox(width: 10),
                           ],

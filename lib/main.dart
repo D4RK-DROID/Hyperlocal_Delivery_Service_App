@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hyperlocal_app/screens/category_screen.dart';
 import 'package:hyperlocal_app/screens/home_screen.dart';
 import 'package:hyperlocal_app/screens/login_screen.dart';
+import 'package:hyperlocal_app/screens/product_screen.dart';
 import 'package:hyperlocal_app/screens/shop_screen.dart';
 import 'package:hyperlocal_app/screens/signup_screen.dart';
 import 'package:firebase_core/firebase_core.dart';

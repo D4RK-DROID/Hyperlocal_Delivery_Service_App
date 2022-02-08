@@ -28,11 +28,12 @@ class ShopStream extends StatelessWidget {
             final shopAddress = shop['address'];
             final shopCategory = shop['category'];
             // final shopOffer = shop['offer'];
-            // final shopRating = shop['rating'];
+            final shopRating = shop['rating'];
             final shopTile = ShopTile(
               address: shopAddress,
               category: shopCategory,
               storeName: shopName,
+              storeRating: shopRating,
             );
             shopTiles.add(shopTile);
           }

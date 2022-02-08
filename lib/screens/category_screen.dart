@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hyperlocal_app/constants.dart';
+import 'package:hyperlocal_app/widgets/category_stream.dart';
 import 'package:hyperlocal_app/widgets/category_tile.dart';
 import 'package:hyperlocal_app/widgets/navbar.dart';
 
@@ -66,69 +67,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
                     cursorColor: kDarkPurple,
                   ),
                 ),
-                Expanded(
-                  child: ListView(
-                    children: [
-                      const SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          CustomTile(
-                            assetName: 'images/bakery_items.png',
-                            categoryName: 'Bakery',
-                          ),
-                          CustomTile(
-                            assetName: 'images/bakery_items.png',
-                            categoryName: 'Bakery',
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          CustomTile(
-                            assetName: 'images/bakery_items.png',
-                            categoryName: 'Bakery',
-                          ),
-                          CustomTile(
-                            assetName: 'images/bakery_items.png',
-                            categoryName: 'Bakery',
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          CustomTile(
-                            assetName: 'images/bakery_items.png',
-                            categoryName: 'Bakery',
-                          ),
-                          CustomTile(
-                            assetName: 'images/bakery_items.png',
-                            categoryName: 'Bakery',
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          CustomTile(
-                            assetName: 'images/bakery_items.png',
-                            categoryName: 'Bakery',
-                          ),
-                          CustomTile(
-                            assetName: 'images/bakery_items.png',
-                            categoryName: 'Bakery',
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-                    ],
-                  ),
-                ),
+                const SizedBox(height: 20),
+                const CategoryStream(),
               ],
             ),
           ),
@@ -138,3 +78,59 @@ class _CategoryScreenState extends State<CategoryScreen> {
     );
   }
 }
+
+//Row(
+//   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//   children: const [
+//     CategoryTile(
+//       assetName: 'images/bakery_items.png',
+//       categoryName: 'Bakery',
+//     ),
+//     CategoryTile(
+//       assetName: 'images/bakery_items.png',
+//       categoryName: 'Bakery',
+//     ),
+//   ],
+// ),
+// const SizedBox(height: 20),
+// Row(
+//   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//   children: const [
+//     CategoryTile(
+//       assetName: 'images/bakery_items.png',
+//       categoryName: 'Bakery',
+//     ),
+//     CategoryTile(
+//       assetName: 'images/bakery_items.png',
+//       categoryName: 'Bakery',
+//     ),
+//   ],
+// ),
+// const SizedBox(height: 20),
+// Row(
+//   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//   children: const [
+//     CategoryTile(
+//       assetName: 'images/bakery_items.png',
+//       categoryName: 'Bakery',
+//     ),
+//     CategoryTile(
+//       assetName: 'images/bakery_items.png',
+//       categoryName: 'Bakery',
+//     ),
+//   ],
+// ),
+// const SizedBox(height: 20),
+// Row(
+//   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//   children: const [
+//     CategoryTile(
+//       assetName: 'images/bakery_items.png',
+//       categoryName: 'Bakery',
+//     ),
+//     CategoryTile(
+//       assetName: 'images/bakery_items.png',
+//       categoryName: 'Bakery',
+//     ),
+//   ],
+// )

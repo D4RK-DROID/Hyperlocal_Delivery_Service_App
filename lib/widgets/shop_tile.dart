@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hyperlocal_app/constants.dart';
 
@@ -8,16 +7,32 @@ class ShopTile extends StatelessWidget {
     required this.address,
     required this.category,
     required this.storeName,
+    required this.storeRating,
   }) : super(key: key);
 
   final String address;
   final String category;
   final String storeName;
-
+  final int storeRating;
   @override
   Widget build(BuildContext context) {
-
-    List<Widget> = [];
+    List<Widget> review = [];
+    for (var i = 0; i < storeRating; i++) {
+      Icon reviewIcon = const Icon(
+        Icons.star,
+        size: 20,
+        color: kYellow,
+      );
+      review.add(reviewIcon);
+    }
+    for (var i = 0; i < 5 - storeRating; i++) {
+      Icon reviewIcon = const Icon(
+        Icons.star_outline,
+        size: 20,
+        color: kYellow,
+      );
+      review.add(reviewIcon);
+    }
     return Container(
       child: Column(
         children: [
@@ -72,42 +87,20 @@ class ShopTile extends StatelessWidget {
                       height: 5,
                     ),
                     Row(
-                      children: const [
-                        Text(
+                      children: [
+                        const Text(
                           'Review:',
                           style: TextStyle(
                             fontWeight: FontWeight.w900,
                             fontFamily: 'Oxygen',
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
-                        Icon(
-                          Icons.star,
-                          size: 20,
-                          color: kYellow,
+                        Row(
+                          children: review,
                         ),
-                        Icon(
-                          Icons.star,
-                          size: 20,
-                          color: kYellow,
-                        ),
-                        Icon(
-                          Icons.star,
-                          size: 20,
-                          color: kYellow,
-                        ),
-                        Icon(
-                          Icons.star,
-                          size: 20,
-                          color: kYellow,
-                        ),
-                        Icon(
-                          Icons.star_border,
-                          size: 20,
-                          color: kYellow,
-                        )
                       ],
                     ),
                     const SizedBox(
@@ -160,4 +153,3 @@ class ShopTile extends StatelessWidget {
     );
   }
 }
-

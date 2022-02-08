@@ -2,49 +2,41 @@ import 'package:flutter/material.dart';
 import 'package:hyperlocal_app/constants.dart';
 import 'package:hyperlocal_app/screens/product_screen.dart';
 
-class CategoryTile extends StatelessWidget {
-  const CategoryTile({
+class CustomTile extends StatelessWidget {
+  const CustomTile({
     Key? key,
+    required this.assetName,
     required this.categoryName,
-    required this.imageURL,
   }) : super(key: key);
-
+  final String assetName;
   final String categoryName;
-  final String imageURL;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ProductScreen(
-                categoryName: categoryName,
-              ),
-            ));
+        Navigator.pushNamed(context, ProductScreen.id);
       },
       style: TextButton.styleFrom(
         padding: EdgeInsets.zero,
       ),
       child: Container(
-        margin: const EdgeInsets.only(bottom: 25),
         decoration: BoxDecoration(
           color: kLightPurple,
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
           children: [
-            Image.network(
-              imageURL,
-              width: 170,
-              height: 150,
+            Image(
+              image: AssetImage(assetName),
+              width: 120,
+              height: 100,
             ),
             Text(
               categoryName,
               style: const TextStyle(
                 color: kDarkPurple,
-                fontSize: 18,
+                fontSize: 14,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Oxygen',
               ),
