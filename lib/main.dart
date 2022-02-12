@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hyperlocal_app/screens/buying_screen.dart';
+import 'package:hyperlocal_app/screens/cart_screen.dart';
 import 'package:hyperlocal_app/screens/category_screen.dart';
 import 'package:hyperlocal_app/screens/home_screen.dart';
 import 'package:hyperlocal_app/screens/login_screen.dart';
-import 'package:hyperlocal_app/screens/product_screen.dart';
 import 'package:hyperlocal_app/screens/shop_screen.dart';
 import 'package:hyperlocal_app/screens/signup_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -27,6 +28,7 @@ class HyperLocal extends StatelessWidget {
         HomeScreen.id: (context) => const HomeScreen(),
         CategoryScreen.id: (context) => const CategoryScreen(),
         ShopScreen.id: (context) => const ShopScreen(),
+        CartScreen.id: (context) => const CartScreen(),
       },
     );
   }

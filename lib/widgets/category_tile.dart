@@ -20,7 +20,9 @@ class CategoryTile extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) => ProductScreen(
-                categoryName: categoryName,
+                fieldName: 'category',
+                fieldValue: categoryName,
+                fromCategory: true,
               ),
             ));
       },

@@ -4,9 +4,16 @@ import 'package:hyperlocal_app/widgets/navbar.dart';
 import 'package:hyperlocal_app/widgets/product_stream.dart';
 
 class ProductScreen extends StatefulWidget {
-  const ProductScreen({Key? key, required this.categoryName}) : super(key: key);
+  const ProductScreen({
+    Key? key,
+    required this.fieldValue,
+    required this.fieldName,
+    required this.fromCategory,
+  }) : super(key: key);
   static const String id = 'ProductScreen';
-  final String categoryName;
+  final String fieldValue;
+  final String fieldName;
+  final bool fromCategory;
 
   @override
   _ProductScreenState createState() => _ProductScreenState();
@@ -44,8 +51,8 @@ class _ProductScreenState extends State<ProductScreen> {
                     ),
                   ),
                 ),
-                const Text(
-                  'Beverages',
+                Text(
+                  widget.fieldValue,
                   style: kHeadingTextStyle,
                 ),
                 const SizedBox(
@@ -59,7 +66,7 @@ class _ProductScreenState extends State<ProductScreen> {
                   ),
                   child: TextField(
                     decoration: kSearchFieldDecoration.copyWith(
-                        hintText: 'Search Beverages'),
+                        hintText: 'Search  ${widget.fieldValue}'),
                     style: const TextStyle(
                       color: kDarkPurple,
                       fontFamily: 'Oxygen',
@@ -68,9 +75,15 @@ class _ProductScreenState extends State<ProductScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                ProductStream(
-                  categoryName: widget.categoryName,
-                ),
+                widget.fromCategory
+                    ? ProductStream(
+                        fieldName: widget.fieldName,
+                        fieldValue: widget.fieldValue,
+                      )
+                    : ProductStream(
+                        fieldName: widget.fieldName,
+                        fieldValue: widget.fieldValue,
+                      ),
               ],
             ),
           ),

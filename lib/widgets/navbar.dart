@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hyperlocal_app/constants.dart';
+import 'package:hyperlocal_app/screens/cart_screen.dart';
+import 'package:hyperlocal_app/screens/home_screen.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({
@@ -56,7 +58,9 @@ class NewNavBar extends StatelessWidget {
         children: [
           IconButton(
               enableFeedback: false,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, HomeScreen.id);
+              },
               icon: const Icon(
                 Icons.home_filled,
                 color: Colors.white,
@@ -72,7 +76,9 @@ class NewNavBar extends StatelessWidget {
               )),
           IconButton(
               enableFeedback: false,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, CartScreen.id);
+              },
               icon: const Icon(
                 Icons.shopping_cart_outlined,
                 color: Colors.white,

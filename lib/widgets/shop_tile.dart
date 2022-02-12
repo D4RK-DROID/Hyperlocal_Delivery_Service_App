@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hyperlocal_app/constants.dart';
+import 'package:hyperlocal_app/screens/product_screen.dart';
 
 class ShopTile extends StatelessWidget {
   const ShopTile({
@@ -33,123 +34,143 @@ class ShopTile extends StatelessWidget {
       );
       review.add(reviewIcon);
     }
-    return Container(
-      child: Column(
-        children: [
-          Row(
-            children: [
-              const Image(
-                image: AssetImage('images/shop.png'),
-                width: 155,
+    return TextButton(
+      onPressed: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ProductScreen(
+                fieldName: 'store',
+                fieldValue: storeName,
+                fromCategory: false,
               ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text.rich(
-                      TextSpan(
-                        children: [
-                          const TextSpan(
-                            text: 'Add: ',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w900,
+            ));
+      },
+      style: TextButton.styleFrom(padding: EdgeInsets.zero),
+      child: Container(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                const Image(
+                  image: AssetImage('images/shop.png'),
+                  width: 155,
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text.rich(
+                        TextSpan(
+                          children: [
+                            const TextSpan(
+                              text: 'Add: ',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w900,
+                              ),
                             ),
-                          ),
-                          TextSpan(text: address),
-                        ],
-                        style: const TextStyle(
-                          fontFamily: 'Oxygen',
-                          fontSize: 14,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text.rich(
-                      TextSpan(
-                        children: [
-                          const TextSpan(
-                            text: 'Category: ',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w900,
-                            ),
-                          ),
-                          TextSpan(text: category),
-                        ],
-                        style: const TextStyle(
-                          fontFamily: 'Oxygen',
-                          fontSize: 14,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      children: [
-                        const Text(
-                          'Review:',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w900,
+                            TextSpan(text: address),
+                          ],
+                          style: const TextStyle(
                             fontFamily: 'Oxygen',
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        Row(
-                          children: review,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      children: [
-                        const Text(
-                          'Offer \nDetails:',
-                          style: TextStyle(
                             fontSize: 14,
-                            fontFamily: 'Oxygen',
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                        const SizedBox(width: 5),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
                             color: kWhite,
                           ),
-                          width: 100,
-                          height: 30,
                         ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-          Text(
-            storeName,
-            style: const TextStyle(
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text.rich(
+                        TextSpan(
+                          children: [
+                            const TextSpan(
+                              text: 'Category: ',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                            TextSpan(text: category),
+                          ],
+                          style: const TextStyle(
+                            fontFamily: 'Oxygen',
+                            fontSize: 14,
+                            color: kWhite,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Row(
+                        children: [
+                          const Text(
+                            'Review:',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w900,
+                              fontFamily: 'Oxygen',
+                              color: kWhite,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Row(
+                            children: review,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Row(
+                        children: [
+                          const Text(
+                            'Offer \nDetails:',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Oxygen',
+                              fontWeight: FontWeight.w900,
+                              color: kWhite,
+                            ),
+                          ),
+                          const SizedBox(width: 5),
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: kWhite,
+                            ),
+                            width: 100,
+                            height: 30,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+            Text(
+              storeName,
+              style: const TextStyle(
                 fontSize: 28,
                 fontFamily: 'Oxygen',
-                fontWeight: FontWeight.w700),
-          ),
-          const SizedBox(height: 5),
-        ],
+                fontWeight: FontWeight.w700,
+                color: kWhite,
+              ),
+            ),
+            const SizedBox(height: 5),
+          ],
+        ),
+        decoration: BoxDecoration(
+          color: kPurple,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        margin: const EdgeInsets.only(bottom: 25),
       ),
-      decoration: BoxDecoration(
-        color: kPurple,
-        borderRadius: BorderRadius.circular(15),
-      ),
-      margin: const EdgeInsets.only(bottom: 25),
     );
   }
 }

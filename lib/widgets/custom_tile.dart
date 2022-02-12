@@ -15,7 +15,15 @@ class CustomTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        Navigator.pushNamed(context, ProductScreen.id);
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ProductScreen(
+                fieldName: 'category',
+                fieldValue: categoryName,
+                fromCategory: true,
+              ),
+            ));
       },
       style: TextButton.styleFrom(
         padding: EdgeInsets.zero,
