@@ -8,9 +8,9 @@ import 'package:twilio_flutter/twilio_flutter.dart';
 final _firestore = FirebaseFirestore.instance;
 
 TwilioFlutter twilioFlutter = TwilioFlutter(
-  accountSid: 'AC7201fd1e41736420c31647802ea4afb9',
-  authToken: 'de8d6e7821e27a514f0e8dcd4b503153',
-  twilioNumber: '+19378802648',
+  accountSid: '************************',
+  authToken: '*************************',
+  twilioNumber: '+**************',
 );
 
 class BuyingScreen extends StatefulWidget {
