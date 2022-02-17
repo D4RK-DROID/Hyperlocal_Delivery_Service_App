@@ -34,6 +34,7 @@ class ProductStream extends StatelessWidget {
           final products = snapshot.data!.docs.reversed;
           List<Widget> productTiles = [];
           for (var product in products) {
+            final productId = product.id;
             final productName = product['name'];
             final productQuantity = product['quantity'];
             final productPackaging = product['packaging'];
@@ -43,6 +44,7 @@ class ProductStream extends StatelessWidget {
             final productImage = product['image'];
             final productStock = product['stock'];
             final productTile = ProductTile(
+              productId: productId,
               productName: productName,
               productQuantity: productQuantity,
               productPackaging: productPackaging,

@@ -46,46 +46,6 @@ class _CartScreenState extends State<CartScreen> {
                     ),
                   ),
                   const SizedBox(
-                    height: 10,
-                  ),
-                  const Text(
-                    'Total Amount: 620₹',
-                    style: kHeadingTextStyle,
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(vertical: 10),
-                      width: double.infinity,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: kWhite,
-                      ),
-                      child: Text(
-                        'Proceed to Buy',
-                        style: kHeadingTextStyle.copyWith(
-                          color: kDarkPurple,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const Text(
-                    'Cart Items',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontFamily: 'Oxygen',
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(
                     height: 20,
                   ),
                   const CartStream(),

@@ -8,6 +8,7 @@ final _firestore = FirebaseFirestore.instance;
 class ProductTile extends StatelessWidget {
   const ProductTile({
     Key? key,
+    required this.productId,
     required this.productName,
     required this.productQuantity,
     required this.productPackaging,
@@ -17,7 +18,7 @@ class ProductTile extends StatelessWidget {
     required this.imageURL,
     required this.productStock,
   }) : super(key: key);
-
+  final String productId;
   final String productName;
   final String productQuantity;
   final String productPackaging;
@@ -52,6 +53,7 @@ class ProductTile extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) => BuyingScreen(
+              productId: productId,
               productName: productName,
               productQuantity: productQuantity,
               productPackaging: productPackaging,

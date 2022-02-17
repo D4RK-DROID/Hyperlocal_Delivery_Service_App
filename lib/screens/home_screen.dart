@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  void getName() async {
+  Future getName() async {
     dynamic data = await _firestore
         .collection('users')
         .where('email', isEqualTo: loggedInUser.email)
@@ -45,11 +45,12 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     getCurrentUser();
-    getName();
   }
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    // double screenHeight = MediaQuery.of(context).size.height;
     return Theme(
       data: ThemeData.dark(),
       child: Scaffold(
@@ -69,13 +70,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          username != null ? 'Hi $username 👋' : 'Hi name 👋',
-                          style: const TextStyle(
-                            fontSize: 22,
-                            fontFamily: 'Lora',
-                            fontWeight: FontWeight.bold,
-                          ),
+                        FutureBuilder(
+                          future: getName(),
+                          builder: (context, name) {
+                            return Text(
+                              'Hi $username 👋',
+                              style: const TextStyle(
+                                fontSize: 22,
+                                fontFamily: 'Lora',
+                                fontWeight: FontWeight.bold,
+                              ),
+                            );
+                          },
                         ),
                         const Text(
                           'Welcome back!',
@@ -129,13 +135,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               child: Column(
-                                children: const [
+                                children: [
                                   Image(
-                                    width: 200,
-                                    image:
-                                        AssetImage('images/nearby_store.png'),
+                                    width: screenWidth * 0.5,
+                                    image: const AssetImage(
+                                        'images/nearby_store.png'),
                                   ),
-                                  Text(
+                                  const Text(
                                     'Nearby Stores',
                                     style: TextStyle(
                                       fontWeight: FontWeight.w800,
@@ -144,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: Color(0xFFFFFFFF),
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 5,
                                   )
                                 ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hyperlocal_app/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:hyperlocal_app/screens/add_products_screen.dart';
 import 'package:hyperlocal_app/screens/home_screen.dart';
 import 'package:hyperlocal_app/screens/signup_screen.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -21,6 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   String? error;
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: ModalProgressHUD(
@@ -63,7 +65,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 30,
                   ),
                   Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 70),
+                    margin:
+                        EdgeInsets.symmetric(horizontal: screenWidth * 0.15),
                     child: Theme(
                       data: Theme.of(context).copyWith(
                         colorScheme: ThemeData().colorScheme.copyWith(
@@ -72,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       child: TextField(
                         onChanged: (value) {
-                          email = value;
+                          email = value.trim();
                         },
                         decoration: kTextFieldDecoration.copyWith(
                           hintText: 'Email',
@@ -88,7 +91,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 20,
                   ),
                   Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 70),
+                    margin:
+                        EdgeInsets.symmetric(horizontal: screenWidth * 0.15),
                     child: Theme(
                       data: Theme.of(context).copyWith(
                         colorScheme: ThemeData().colorScheme.copyWith(
@@ -114,7 +118,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 20,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 100.0),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: screenWidth * 0.17),
                     child: TextButton(
                       onPressed: () async {
                         setState(() {
@@ -123,7 +128,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         try {
                           await _auth.signInWithEmailAndPassword(
                               email: email, password: password);
-                          Navigator.pushNamed(context, HomeScreen.id);
+                          if (email == 'admin@hyperlocal.com') {
+                            Navigator.pushNamed(context, AddProductScreen.id);
+                          } else {
+                            Navigator.pushNamed(context, HomeScreen.id);
+                          }
                           email = '';
                           password = '';
                         } catch (e) {
@@ -197,7 +206,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 100.0),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: screenWidth * 0.17),
                     child: TextButton(
                       onPressed: () {
                         setState(() {
@@ -228,6 +238,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
+                  ),
+                  SizedBox(
+                    height: screenHeight * 0.2,
                   )
                 ],
               ),

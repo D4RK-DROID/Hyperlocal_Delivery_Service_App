@@ -34,6 +34,8 @@ class ShopTile extends StatelessWidget {
       );
       review.add(reviewIcon);
     }
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return TextButton(
       onPressed: () {
         Navigator.push(
@@ -52,9 +54,9 @@ class ShopTile extends StatelessWidget {
           children: [
             Row(
               children: [
-                const Image(
-                  image: AssetImage('images/shop.png'),
-                  width: 155,
+                Image(
+                  image: const AssetImage('images/shop.png'),
+                  width: screenWidth * 0.37,
                 ),
                 Expanded(
                   child: Column(
@@ -140,7 +142,7 @@ class ShopTile extends StatelessWidget {
                               borderRadius: BorderRadius.circular(5),
                               color: kWhite,
                             ),
-                            width: 100,
+                            width: screenWidth * 0.3,
                             height: 30,
                           ),
                         ],
@@ -165,6 +167,7 @@ class ShopTile extends StatelessWidget {
             const SizedBox(height: 5),
           ],
         ),
+        padding: const EdgeInsets.only(top: 10),
         decoration: BoxDecoration(
           color: kPurple,
           borderRadius: BorderRadius.circular(15),

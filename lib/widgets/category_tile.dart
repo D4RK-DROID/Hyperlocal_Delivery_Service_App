@@ -14,6 +14,7 @@ class CategoryTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return TextButton(
       onPressed: () {
         Navigator.push(
@@ -39,14 +40,14 @@ class CategoryTile extends StatelessWidget {
           children: [
             Image.network(
               imageURL,
-              width: 170,
+              width: screenWidth * 0.42,
               height: 150,
             ),
             Text(
               categoryName,
-              style: const TextStyle(
+              style: TextStyle(
                 color: kDarkPurple,
-                fontSize: 18,
+                fontSize: screenWidth * 0.045,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Oxygen',
               ),

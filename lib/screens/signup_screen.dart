@@ -23,6 +23,7 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: ModalProgressHUD(
         inAsyncCall: showSpinner,
@@ -60,7 +61,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                     ),
                     SizedBox(
-                      height: screenHeight * 0.10,
+                      height: screenHeight * 0.13,
                     ),
                     const Text(
                       'Customer Details',
@@ -76,7 +77,8 @@ class _SignupScreenState extends State<SignupScreen> {
                       height: 20.0,
                     ),
                     Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 70),
+                      margin:
+                          EdgeInsets.symmetric(horizontal: screenWidth * 0.15),
                       child: Theme(
                         data: Theme.of(context).copyWith(
                           colorScheme: ThemeData().colorScheme.copyWith(
@@ -108,7 +110,8 @@ class _SignupScreenState extends State<SignupScreen> {
                       height: 20,
                     ),
                     Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 70),
+                      margin:
+                          EdgeInsets.symmetric(horizontal: screenWidth * 0.15),
                       child: Theme(
                         data: Theme.of(context).copyWith(
                           colorScheme: ThemeData().colorScheme.copyWith(
@@ -140,7 +143,8 @@ class _SignupScreenState extends State<SignupScreen> {
                       height: 20,
                     ),
                     Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 70),
+                      margin:
+                          EdgeInsets.symmetric(horizontal: screenWidth * 0.15),
                       child: Theme(
                         data: Theme.of(context).copyWith(
                           colorScheme: ThemeData().colorScheme.copyWith(
@@ -173,7 +177,8 @@ class _SignupScreenState extends State<SignupScreen> {
                       height: 20,
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 100.0),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: screenWidth * 0.17),
                       child: TextButton(
                         onPressed: () async {
                           setState(() {
@@ -220,7 +225,8 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 75.0),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: screenWidth * 0.15),
                       child: TextButton(
                         onPressed: () {},
                         child: const Text(
@@ -252,7 +258,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           },
                           child: Container(
                             height: 45,
-                            width: 150,
+                            width: screenWidth * 0.35,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
                               border: Border.all(
